@@ -57,9 +57,6 @@ def main():
 
     # Convert JSON string to dictionary
     business_data = response.json()
-    #print(business_data)
-
-    #print(business_data.keys())
 
     for business in business_data['businesses']:
         name = business['name']
