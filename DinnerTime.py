@@ -4,29 +4,9 @@
 import requests
 import json 
 import config   
+import restaurants  
 
 def main():
-
-    restaurants = ["Afghan", "African", "American", "Andalusian", "Arabian", "Arab", "Argentine", "Armenian", "Asian", "Asturian",
-    "Australian",	"Austrian","Baguettes",	"Bangladeshi", "Barbeque", "Basque", "Bavarian", "Beer", "Beisl", "Belgian",
-    "Bistros", "Brasseries", "Brazilian",	"Breakfast", "British",	"Buffets", "Bulgarian",	"Burgers", "Burmese", "Cafes",
-    "Cafeteria", "Cajun/Creole", "Cambodian",	"Canadian", "Canteen", "Caribbean", "Catalan", "Cheesesteaks", "Chicken", "Chilean",
-    "Chinese", "Cantonese",	"Congee",	"Dim", "Fuzhou", "Hainan", "Hakka",	"Henghwa", "Hokkien", "Hunan", "Pekinese", "Shanghainese",
-    "Szechuan", "Teochew", "Comfort",	"Corsican", "Creperies", "Cuban",	"Curry", "Cypriot",	"Czech", "Czech/Slovakian",	"Danish",	
-    "Delis",	"Diners",	"Dinner",	"Dumplings", "Eastern", "Eritrean", "Ethiopian", "Fast", "Filipino", "Fischbroetchen", "Fish",
-    "Flatbread", "Fondue", "Freiduria", "French", "Gastropubs", "Georgian",	"German",	"Gluten-Free", "Greek",	"Guamanian",
-    "Halal", "Hawaiian", "Heuriger", "Himalayan/Nepalese", "Honduran", "Hungarian",	"Iberian", "Indian", "Indonesian",
-    "International", "Irish", "Island", "Israeli", "Italian", "Japanese", "Jewish", "Kebab", "Kopitiam", "Korean", "Kosher", "Kurdish",
-    "Laos", "Laotian", "Latin", "Malaysian", "Mamak",	"Nyonya",	"Meatballs", "Mediterranean", "Falafel", "Mexican",	"Egyptian",
-    "Lebanese", "Milk",	"Modern",	"Mongolian", "Moroccan", "Nicaraguan", "Noodles", "Oriental",	"PF/Comercial", "Pakistani",
-    "Pan", "Persian/Iranian", "Peruvian",	"Pita", "Pizza", "Polish", "Pierogis", "Polynesian", "Portuguese", "Potatoes", "Poutineries",
-    "Pub", "Rice", "Romanian", "Rotisserie", "Russian", "Salad", "Sandwiches", "Scandinavian", "Schnitzel", "Scottish",	"Seafood",
-    "Serbo", "Signature", "Singaporean", "Slovakian", "Somali", "Soul",	"Soup", "Southern",	"Spanish", "Steakhouses", "Supper",
-    "Sushi", "Swabian",	"Swedish", "Swiss",	"Syrian",	"Tabernas", "Taiwanese", "Tapas",	"Tavola",	"Tex-Mex", "Thai", "Traditional",
-    "Trattorie", "Turkish", "Ukrainian", "Uzbek", "Vegan", "Vegetarian", "Venison", "Vietnamese", "Waffles", "Wok",	"Wraps",
-    "Yugoslav"]
-
-    newRestaurants = [x.lower() for x in restaurants]
 
     print('''
             (
@@ -56,6 +36,7 @@ def main():
     
     # Get user's input on cuisine they are looking for and store in variable cuisine
     cuisine = input()
+   
     
     print('Let us know where you are! Enter your zipcode.')
     
