@@ -1,4 +1,4 @@
-'''Dinner Time - your quickest way to find delicious food in NYC's Murray Hill!'''
+'''Dinner Time - your quickest way to find delicious food in NYC!'''
 _version_ = 0
 
 # Import the modules
@@ -24,19 +24,23 @@ def main():
     #    #       #    #    #     # # #   ## #   ## #      #   #        #    # #    # #      ### 
     ###   #        ####     ######  # #    # #    # ###### #    #       #    # #    # ###### ### 
 
-    Welcome to Dinner Time - your new favorite way to decide what to eat in NYC's Murray Hill! 
-    The rules of the game are simple, let us know what cuisine you are in the mood for, and we will 
-    show you the best 50 restaurants in area to pick from! Bored of those options? Play again, and you 
-    will get the next round of 50 restaurants! Now, get hungry, and get picking!
+    Welcome to Dinner Time - your new favorite way to decide what to eat in NYC! 
+    The rules of the game are simple, let us know what cuisine you are in the mood for, where you are located, and we will 
+    show you the best restaurants in area to pick from that are open now! Now, get hungry, and get picking!
     ''')
 
     print('We have many options in the area for you to pick from!')
-    print('Pick a food and we will let you know if it is available in Murray Hill!')
+    print('Pick a food and we will let you know if it is available in your area!')
     print('If it is available in the area, we will show you the best restaurants for that cuisine.')
     print('Start by letting us know what you are in the mood for:')
     
     # Get user's input on cuisine they are looking for and store in variable cuisine
     cuisine = input()
+    
+    print('Let us know where you are! Enter your zipcode.')
+    
+    # Get user's input on zipcode to update parameters
+    zip = input()
     
 
     # Define API Key, Search Type, and header
@@ -45,7 +49,7 @@ def main():
     HEADERS = {'Authorization': 'bearer %s' % APIKEY}
 
     # Define the parameters of the search
-    PARAMETERS = {'location': 'New York, NY 10016',
+    PARAMETERS = {'location': zip,
                 'term' : 'restaurants',
                 'sort_by' : 'rating',
                 'open_now': 'True',
@@ -59,10 +63,11 @@ def main():
     business_data = response.json()
 
     for business in business_data['businesses']:
-        name = business['name']
-        cuisine = business['categories'][0]['title']
-        address = business['location']['address1']
-        print('Name: ' + name + ', ' 'Cuisine: ' + cuisine + ', ' 'Location: ' + address)
+        if cuisine in business['categories'][0]['title']:
+            name = business['name']
+            cuisine = business['categories'][0]['title']
+            address = business['location']['address1']
+            print('Name: ' + name + ', ' 'Cuisine: ' + cuisine + ', ' 'Location: ' + address)
 
 # If the program is run instead of imported, run the game:
 if __name__ == '__main__':
