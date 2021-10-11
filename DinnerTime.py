@@ -271,10 +271,10 @@ def main():
    
    # Check if user's input is available as an option
     if cuisine.casefold() not in map(str.casefold,restaurants):
-        print("Please try another type of Cuisine! This is not available.")
+        print("Please try another type of food! This is not available.")
         exit()
 
-    print('Let us know where you are! Enter your zipcode.')
+    print('Let us know where you are looking for food! Enter your zipcode.')
     
     # Get user's input on zipcode to update parameters
     zip = input()
@@ -298,15 +298,23 @@ def main():
     # Make a request to the API, and return results
     response = requests.get(url=ENDPOINT,params=PARAMETERS,headers=HEADERS)
 
-    # Convert JSON string to dictionary
     business_data = response.json()
 
+    # Set boolean variable to False to use as check if cuisine is found in dictionary
+    cuisines_available = False
+
+    # Iterate through businesses to output name, cuisine type, and location of restaurants that fit search parameter
     for business in business_data['businesses']:
         if cuisine_title in business['categories'][0]['title']:
             name = business['name']
             cuisine_title = business['categories'][0]['title']
             address = business['location']['address1']
+            cuisines_available = True
             print('Name: ' + name + ', ' 'Cuisine: ' + cuisine_title + ', ' 'Location: ' + address)
+    
+    # Check if boolean didn't flip to True. If so, tell the user to make another selection 
+    if cuisines_available == False:
+        print("This is not found! Try another cuisine!")
 
 # If the program is run instead of imported, run the program:
 if __name__ == '__main__':
