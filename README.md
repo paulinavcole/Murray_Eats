@@ -1,9 +1,7 @@
 <h1 align="center">Murray Eats-Dinner Time</h1>
 
 ## About the Project
-Dinner Time is a Python script that pulls local business data from the Yelp Fusion API Business Search
-endpoint and asks for the user's input on their location and cuisine preference, returning restaurants in 
-their area sorted by rating, filtered on what is open now. 
+Dinner Time is a Python script that pulls data from the Yelp Fusion API Business Search endpoint in response to the user input of location and cuisine preferences, returning restaurants in the area sorted by rating and filtered on what is open now.
 
 ## Description
 
